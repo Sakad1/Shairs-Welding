@@ -1,102 +1,171 @@
-/* Colors */
-main {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 50px;
-    font-family: 'Roboto', sans-serif;
+body {
+  background-color: #041b2a;
+  color: #ffffff;
+  font-family: 'Oswald', sans-serif;
+}
+
+/* Custom styles for the carousel controls */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: black;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+}
+
+h1 {
+  text-align: center;
+  color: white;
+  font-size: 3em;
+  transition: 0.5s;
+}
+
+h1:hover {
+  text-shadow: 0 1px 0 #ccc, 0 2px 0 #279ee5, 0 3px 0 #ccc, 0 4px 0 #279ee5,
+    0 5px 0 #ccc, 0 6px 0 #279ee5, 0 7px 0 #ccc, 0 8px 0 #279ee5,
+    0 9px 0 #ccc, 0 10px 0 #279ee5, 0 11px 0 #ccc, 0 12px 0 #279ee5,
+    0 20px 30px rgba(0, 0, 0, 0.5);
+}
+
+.carousel-control-prev-icon {
+  background-image: url('data:image/svg+xml;charset=utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 8"><path fill="white" d="M5.5 1.5L3.5 3.5 5.5 5.5 4.5 6.5 2.5 4.5 4.5 2.5 5.5 1.5z"/></svg>');
+}
+
+.carousel-control-next-icon {
+  background-image: url('data:image/svg+xml;charset=utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 8"><path fill="white" d="M2.5 1.5L4.5 3.5 2.5 5.5 3.5 6.5 5.5 4.5 3.5 2.5 2.5 1.5z"/></svg>');
+}
+.carousel .card img {
+  width: 100%; /* Ensure the image takes up the full width of the card */
+  height: 400px; /* Set a fixed height for all images */
+  object-fit: cover; /* This ensures the images are cropped to fit while maintaining aspect ratio */
+}
+
+/* Custom styles for the jumbotron with background image */
+.jumbotron {
+  background: url('./logo.png') no-repeat center center;
+  background-size: cover;
+  color: white;
+  position: relative;
+  overflow: hidden;
+  padding: 100px 0;
+}
+
+.jumbotron::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.jumbotron .container {
+  position: relative;
+  z-index: 2;
+}
+
+/* Custom styles for the Our Work section */
+.our-work img {
+  width: 80%; /* Adjust percentage or use a fixed size like '400px' */
+  height: 800px; /* Keep the aspect ratio */
+  margin: 0 auto; /* Center the images */
+}
+
+.our-work .row {
+  margin-bottom: 20px;
+}
+
+/* Custom styles for the Who We Are section */
+.who-we-are {
+  background-color: #041b2a;
+  padding: 40px 0;
+}
+
+.who-we-are h2 {
+  margin-bottom: 20px;
+}
+
+.who-we-are p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+}
+
+/* Custom styles for the footer */
+footer {
+  background: linear-gradient(135deg, #041b2a 0%, #279ee5 100%);
+  color: #ffffff;
+}
+
+footer a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+.navbar {
+  background: linear-gradient(135deg, #041b2a 0%, #279ee5 100%);
+  display: flex;
+  justify-content: center;
+  padding: 1rem 0;
+}
+
+/* Card styles */
+.card {
+  width: 30rem;
+  transition: transform 0.4s, box-shadow 0.4s;
+  perspective: 1000px;
+  margin: 20px;
+  border: none;
+}
+
+/* Animation on hover */
+.card:hover {
+  transform: translateY(-10px) rotateY(10deg);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.card img {
+  width: auto;
+  height: auto;
+}
+
+.card-body {
+  background-color: #07304b;
+  color: white;
+  font-family: 'Oswald', sans-serif;
+  border-style: solid;
+}
+
+/* Animation keyframes for floating effect */
+@keyframes float {
+  0% {
+    transform: translateY(0);
   }
-  
-  .card-container {
-    display: flex;
-    gap: 20px;
+  50% {
+    transform: translateY(-5px);
   }
-  
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* Applying float animation to cards */
+.card {
+  animation: float 3s ease-in-out infinite;
+}
+a{
+  color: #ffffff;
+}
+@media (max-width: 768px) {
   .card {
-    width: 24rem;
-    border-radius: 10px;
-    overflow: hidden;
-    cursor: pointer;
-    position: relative;
-    color: rgb(240, 240, 240);
-    box-shadow: 0 10px 30px 5px rgba(0, 0, 0, 0.2);
-    background-color: #333; /* Add a background color to see content */
+    width: 18rem; /* Resize cards for mobile */
   }
-  
-  .card img.card-img {
-    width: 100%;
+  .our-work img {
+    width: 100%; /* Adjust image width for mobile */
     height: auto;
-    display: block;
   }
-  
-  .card-content {
-    padding: 20px;
-    z-index: 1;
-    position: relative;
-    color: #fff; /* Make text visible */
-  }
-  
-  .card h2 {
-    margin: 0;
-    font-family: 'Roboto Condensed', sans-serif;
-    font-weight: normal;
-    text-transform: uppercase;
-  }
-  
-  .card p {
-    margin: 10px 0;
-  }
-  
-  .card a {
-    color: inherit;
-    text-decoration: none;
-  }
-  
-  .card .button {
-    background-color: #ff5722;
-    color: white;
-    padding: 10px 15px;
-    border-radius: 5px;
-    display: inline-block;
-    transition: background-color 0.3s ease;
-  }
-  
-  .card .button:hover {
-    background-color: #ff784e;
-  }
-  
-  .material-symbols-outlined {
-    vertical-align: middle;
-  }
-  
-  /* Dropdown images */
-  .dropdown-images {
-    display: none;
-    flex-direction: column;
-    gap: 10px;
-    margin-top: 20px;
-    padding: 15px;
-    background-color: #444; /* Different background color for dropdown */
-    border-radius: 5px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Add shadow to separate */
-  }
-  
-  .dropdown-images.show {
-    display: flex;
-  }
-  
-  .dropdown-images img {
-    width: 100%;
-    border-radius: 5px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  }
-  div.scroll-container {
-    background-color: #333;
-    overflow: auto;
-    white-space: nowrap;
-    padding: 10px;
-  }
-  
-  div.scroll-container img {
-    padding: 10px;
-  }
+}
