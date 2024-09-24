@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+  <style>
+    /* Custom styles for the carousel controls */
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+      background-color: black;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+    }
+
+    .carousel-control-prev-icon {
+      background-image: url('data:image/svg+xml;charset=utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 8"><path fill="white" d="M5.5 1.5L3.5 3.5 5.5 5.5 4.5 6.5 2.5 4.5 4.5 2.5 5.5 1.5z"/></svg>');
+    }
+
+    .carousel-control-next-icon {
+      background-image: url('data:image/svg+xml;charset=utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 8"><path fill="white" d="M2.5 1.5L4.5 3.5 2.5 5.5 3.5 6.5 5.5 4.5 3.5 2.5 2.5 1.5z"/></svg>');
+    }
+
+    /* Custom styles for the card */
+    .card {
+      width: 24rem; /* Increase the card width */
+    }
+
+    /* Custom styles for the jumbotron with background image */
+    .jumbotron {
+      background: url('./logo.jpg') no-repeat center center;
+      background-size: cover;
+      color: white;
+      position: relative;
+      overflow: hidden;
+      padding: 100px 0;
+    }
+
+    .jumbotron::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5); /* Black overlay with 50% opacity */
+      z-index: 1;
+    }
+
+    .jumbotron .container {
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Custom styles for the Our Work section */
+    .our-work img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+
+    .our-work .row {
+      margin-bottom: 20px;
+    }
+
+    /* Custom styles for the Who We Are section */
+    .who-we-are {
+      background-color: #f8f9fa;
+      padding: 40px 0;
+    }
+
+    .who-we-are h2 {
+      margin-bottom: 20px;
+    }
+
+    .who-we-are p {
+      font-size: 1.2rem;
+      line-height: 1.6;
+    }
+  </style>
+
+  <title>Shairs Welding</title>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Shairs Welding</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contact</a>
+          </li>
+        </ul>
+        <form class="d-flex">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+
+  <div class="jumbotron">
+    <div class="container">
+      <h1 class="display-4">Welcome to Shairs Welding</h1>
+      <p class="lead">Your trusted partner for all handyman and welding needs. At Shairs Welding, we pride ourselves on delivering high-quality craftsmanship and reliable service for all your home repair and improvement projects. From custom welding solutions to general handyman services, our experienced team is dedicated to bringing your vision to life with precision and care. Contact us today to experience top-notch service and exceptional results.</p>
+    </div>
+  </div>
+
+  <div id="cardCarousel" class="carousel slide">
+    <div class="carousel-inner">
+      <!-- First card -->
+      <div class="carousel-item active">
+        <div class="container d-flex justify-content-center">
+          <div class="card">
+            <img src="https://images.unsplash.com/photo-1578503750144-50b51c61e4f4?fit=crop&w=600&h=400" class="card-img-top" alt="Metal Fabrication">
+            <div class="card-body">
+              <h5 class="card-title">METAL FABRICATION & INSTALLATION</h5>
+              <p class="card-text">Precision metal fabrication and expert installation for custom projects. From structural elements to decorative pieces, we handle it all.</p>
+              <a href="#" class="btn btn-primary">Learn More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Second card -->
+      <div class="carousel-item">
+        <div class="container d-flex justify-content-center">
+          <div class="card">
+            <img src="https://images.unsplash.com/photo-1542872700-468e5b4e4c8b?fit=crop&w=600&h=400" class="card-img-top" alt="Welding & Fencing">
+            <div class="card-body">
+              <h5 class="card-title">WELDING & FENCING</h5>
+              <p class="card-text">Custom welding solutions and durable fencing installations to enhance security and aesthetics of your property.</p>
+              <a href="#" class="btn btn-primary">Learn More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Third card -->
+      <div class="carousel-item">
+        <div class="container d-flex justify-content-center">
+          <div class="card">
+            <img src="https://images.unsplash.com/photo-1603375963945-6d8f447b2cfb?fit=crop&w=600&h=400" class="card-img-top" alt="Slide Gate">
+            <div class="card-body">
+              <h5 class="card-title">SLIDE GATE</h5>
+              <p class="card-text">Expertly designed slide gates that combine functionality with style, providing easy access and enhanced security.</p>
+              <a href="#" class="btn btn-primary">Learn More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Fourth card -->
+      <div class="carousel-item">
+        <div class="container d-flex justify-content-center">
+          <div class="card">
+            <img src="https://images.unsplash.com/photo-1557201855-67c35e0402c4?fit=crop&w=600&h=400" class="card-img-top" alt="Shed Construction">
+            <div class="card-body">
+              <h5 class="card-title">SHED CONSTRUCTION & REPAIRS</h5>
+              <p class="card-text">Reliable construction and repair services for sheds, ensuring durability and functionality for your storage needs.</p>
+              <a href="#" class="btn btn-primary">Learn More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Fifth card -->
+      <div class="carousel-item">
+        <div class="container d-flex justify-content-center">
+          <div class="card">
+            <img src="https://images.unsplash.com/photo-1581091013686-f7e24d9a09ae?fit=crop&w=600&h=400" class="card-img-top" alt="Interior Painting">
+            <div class="card-body">
+              <h5 class="card-title">INTERIOR & EXTERIOR PAINTING</h5>
+              <p class="card-text">Professional painting services to refresh and enhance the look of both interior and exterior spaces.</p>
+              <a href="#" class="btn btn-primary">Learn More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Sixth card -->
+      <div class="carousel-item">
+        <div class="container d-flex justify-content-center">
+          <div class="card">
+            <img src="https://images.unsplash.com/photo-1505331344117-6df4b9f158c4?fit=crop&w=600&h=400" class="card-img-top" alt="Roof Repairs">
+            <div class="card-body">
+              <h5 class="card-title">ROOF REPAIRS</h5>
+              <p class="card-text">Comprehensive roof repair services to address leaks, damage, and maintenance issues, ensuring the integrity of your roof.</p>
+              <a href="#" class="btn btn-primary">Learn More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Seventh card -->
+      <div class="carousel-item">
+        <div class="container d-flex justify-content-center">
+          <div class="card">
+            <img src="https://images.unsplash.com/photo-1562116187-897b219b58e4?fit=crop&w=600&h=400" class="card-img-top" alt="Door & Window Installation">
+            <div class="card-body">
+              <h5 class="card-title">DOOR & WINDOW INSTALLATION</h5>
+              <p class="card-text">Professional installation services for doors and windows to enhance security, efficiency, and aesthetics of your home.</p>
+              <a href="#" class="btn btn-primary">Learn More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Eighth card -->
+      <div class="carousel-item">
+        <div class="container d-flex justify-content-center">
+          <div class="card">
+            <img src="https://images.unsplash.com/photo-1608476760252-2e5db7dfc9c5?fit=crop&w=600&h=400" class="card-img-top" alt="Tiling & Flooring">
+            <div class="card-body">
+              <h5 class="card-title">TILING & FLOORING</h5>
+              <p class="card-text">Expert tiling and flooring services for a variety of surfaces, including installation and repairs.</p>
+              <a href="#" class="btn btn-primary">Learn More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Ninth card -->
+      <div class="carousel-item">
+        <div class="container d-flex justify-content-center">
+          <div class="card">
+            <img src="https://images.unsplash.com/photo-1594028307612-c831d5b9187c?fit=crop&w=600&h=400" class="card-img-top" alt="Drywall Repairs">
+            <div class="card-body">
+              <h5 class="card-title">DRYWALL REPAIRS</h5>
+              <p class="card-text">Reliable drywall repair services to fix holes, cracks, and damage for a smooth and seamless finish.</p>
+              <a href="#" class="btn btn-primary">Learn More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Tenth card -->
+      <div class="carousel-item">
+        <div class="container d-flex justify-content-center">
+          <div class="card">
+            <img src="https://images.unsplash.com/photo-1610364727572-fd8c8a77530b?fit=crop&w=600&h=400" class="card-img-top" alt="Furniture Assembly">
+            <div class="card-body">
+              <h5 class="card-title">FURNITURE ASSEMBLY</h5>
+              <p class="card-text">Professional furniture assembly services to ensure your new furniture is assembled correctly and securely.</p>
+              <a href="#" class="btn btn-primary">Learn More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <a class="carousel-control-prev" href="#cardCarousel" role="button" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#cardCarousel" role="button" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </a>
+  </div>
+
+  <!-- Bootstrap Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-7d1eFQOAaPghyLpgkU4T0rU1whQj0wHbh/jiOa/1T4Zhd/RhYN0nD+mS/KFUPNI" crossorigin="anonymous"></script>
+</body>
+</html>

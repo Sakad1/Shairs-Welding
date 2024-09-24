@@ -1,0 +1,493 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+  <!-- Oswald Font Import -->
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500&display=swap" rel="stylesheet">
+  
+  <style>
+    body {
+      background-color: #041b2a;
+      color: #ffffff;
+      font-family: 'Oswald', sans-serif;
+    }
+
+    /* Custom styles for the carousel controls */
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+      background-color: black;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+    }
+
+    h1 {
+      text-align: center;
+      color: white;
+      font-size: 3em;
+      transition: 0.5s;
+    }
+
+    h1:hover {
+      text-shadow: 0 1px 0 #ccc, 0 2px 0 #279ee5, 0 3px 0 #ccc, 0 4px 0 #279ee5,
+        0 5px 0 #ccc, 0 6px 0 #279ee5, 0 7px 0 #ccc, 0 8px 0 #279ee5,
+        0 9px 0 #ccc, 0 10px 0 #279ee5, 0 11px 0 #ccc, 0 12px 0 #279ee5,
+        0 20px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .carousel-control-prev-icon {
+      background-image: url('data:image/svg+xml;charset=utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 8"><path fill="white" d="M5.5 1.5L3.5 3.5 5.5 5.5 4.5 6.5 2.5 4.5 4.5 2.5 5.5 1.5z"/></svg>');
+    }
+
+    .carousel-control-next-icon {
+      background-image: url('data:image/svg+xml;charset=utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 8"><path fill="white" d="M2.5 1.5L4.5 3.5 2.5 5.5 3.5 6.5 5.5 4.5 3.5 2.5 2.5 1.5z"/></svg>');
+    }
+    .carousel .card img {
+      width: 100%; /* Ensure the image takes up the full width of the card */
+      height: 400px; /* Set a fixed height for all images */
+      object-fit: cover; /* This ensures the images are cropped to fit while maintaining aspect ratio */
+  }
+
+    /* Custom styles for the jumbotron with background image */
+    .jumbotron {
+      background: url('./logo.png') no-repeat center center;
+      background-size: cover;
+      color: white;
+      position: relative;
+      overflow: hidden;
+      padding: 100px 0;
+    }
+
+    .jumbotron::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+    }
+
+    .jumbotron .container {
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Custom styles for the Our Work section */
+    .our-work img {
+      width: 80%; /* Adjust percentage or use a fixed size like '400px' */
+      height: 800px; /* Keep the aspect ratio */
+      margin: 0 auto; /* Center the images */
+    }
+
+    .our-work .row {
+      margin-bottom: 20px;
+    }
+
+    /* Custom styles for the Who We Are section */
+    .who-we-are {
+      background-color: #041b2a;
+      padding: 40px 0;
+    }
+
+    .who-we-are h2 {
+      margin-bottom: 20px;
+    }
+
+    .who-we-are p {
+      font-size: 1.2rem;
+      line-height: 1.6;
+    }
+
+    /* Custom styles for the footer */
+    footer {
+      background: linear-gradient(135deg, #041b2a 0%, #279ee5 100%);
+      color: #ffffff;
+    }
+
+    footer a {
+      color: #ffffff;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    .navbar {
+      background: linear-gradient(135deg, #041b2a 0%, #279ee5 100%);
+      display: flex;
+      justify-content: center;
+      padding: 1rem 0;
+    }
+
+    /* Card styles */
+    .card {
+      width: 30rem;
+      transition: transform 0.4s, box-shadow 0.4s;
+      perspective: 1000px;
+      margin: 20px;
+      border: none;
+    }
+
+    /* Animation on hover */
+    .card:hover {
+      transform: translateY(-10px) rotateY(10deg);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .card img {
+      width: auto;
+      height: auto;
+    }
+
+    .card-body {
+      background-color: #07304b;
+      color: white;
+      font-family: 'Oswald', sans-serif;
+      border-style: solid;
+    }
+
+    /* Animation keyframes for floating effect */
+    @keyframes float {
+      0% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-5px);
+      }
+      100% {
+        transform: translateY(0);
+      }
+    }
+
+    /* Applying float animation to cards */
+    .card {
+      animation: float 3s ease-in-out infinite;
+    }
+    a{
+      color: #ffffff;
+    }
+    @media (max-width: 768px) {
+      .card {
+        width: 18rem; /* Resize cards for mobile */
+      }
+      .our-work img {
+        width: 100%; /* Adjust image width for mobile */
+        height: auto;
+      }
+    }
+
+  </style>
+
+  <title>Shairs Welding</title>
+  <nav class="navbar navbar-light bg-light">
+    <a class="navbar-brand" href="#">
+    <img src="./logo.png" width="100" height="100" alt="logo" loading="lazy">
+    </a>
+</nav>
+</head>
+<body>
+  <div class="jumbotron">
+    <div class="container">
+      <h1 class="display-4">Welcome to Shairs Welding</h1>
+      <p class="lead">At Shairs Welding, we’re your trusted local handyman in Toowoomba, offering top-notch welding and home repair services. Whether you need custom metalwork or help with general repairs around the house, we’re here to provide reliable, high-quality craftsmanship. With years of experience, we take pride in being the go-to team for all your home improvement needs. Contact us today and let us bring your ideas to life with care and precision. Local, dedicated, and always here to help!</p>
+    </div>
+  </div>
+  
+  <h1 class="my-4">Our Services</h1>
+  <div id="cardCarousel" class="carousel slide">
+    <div class="carousel-inner">
+      <!-- First card -->
+      <div class="carousel-item active">
+        <div class="container d-flex justify-content-center">
+          <div class="card">
+            <img src="./images/welding.jpg" class="card-img-top" alt="Card image 1">
+            <div class="card-body">
+              <h5 class="card-title">METAL FABRICATION & INSTALLATION</h5>
+              <p class="card-text">Precision metal fabrication and expert installation for custom projects. From structural elements to decorative pieces, we handle it all.</p>
+              <a href="tel:+61433195185" class="btn btn-primary">Call Us</a>
+              <a href="sms:+61433195185" class="btn btn-primary"> SMS-Booking</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Second card -->
+      <div class="carousel-item">
+        <div class="container d-flex justify-content-center">
+          <div class="card">
+            <img src="./images/fence.jpg" class="card-img-top" alt="Card image 2">
+            <div class="card-body">
+              <h5 class="card-title">WELDING & FENCING</h5>
+              <p class="card-text">Custom welding solutions and durable fencing installations to enhance security and aesthetics of your property.</p>
+              <a href="tel:+61433195185" class="btn btn-primary">Call Us</a>
+              <a href="sms:+61433195185" class="btn btn-primary"> SMS-Booking</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Third card -->
+      <div class="carousel-item">
+        <div class="container d-flex justify-content-center">
+          <div class="card">
+            <img src="./images/5.JPG" class="card-img-top" alt="Card image 3">
+            <div class="card-body">
+              <h5 class="card-title">SLIDE GATE</h5>
+              <p class="card-text">Robust slide gates designed for both functionality and style, ensuring easy access and enhanced security.</p>
+              <a href="tel:+61433195185" class="btn btn-primary">Call Us</a>
+              <a href="sms:+61433195185" class="btn btn-primary"> SMS-Booking</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Third card -->
+      <div class="carousel-item">
+        <div class="container d-flex justify-content-center">
+          <div class="card">
+            <img src="./images/ALUMINUM.jpg" class="card-img-top" alt="Card image 3">
+            <div class="card-body">
+              <h5 class="card-title">ALUMINUM CARPENTRY</h5>
+              <p class="card-text">Expert aluminum carpentry services for a range of projects, providing durability and a modern aesthetic.</p>
+              <a href="tel:+61433195185" class="btn btn-primary">Call Us</a>
+              <a href="sms:+61433195185" class="btn btn-primary"> SMS-Booking</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Third card -->
+      <div class="carousel-item">
+        <div class="container d-flex justify-content-center">
+          <div class="card">
+            <img src="./images/gulting.jpg" class="card-img-top" alt="Card image 3">
+            <div class="card-body">
+              <h5 class="card-title">GUTTER CLEANING & REPAIRS</h5>
+              <p class="card-text">Reliable gutter cleaning and repair services to keep your home in top shape and prevent water damage.</p>
+              <a href="tel:+61433195185" class="btn btn-primary">Call Us</a>
+              <a href="sms:+61433195185" class="btn btn-primary"> SMS-Booking</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Third card -->
+      <div class="carousel-item">
+        <div class="container d-flex justify-content-center">
+          <div class="card">
+            <img src="./images/2.JPG" class="card-img-top" alt="Card image 3">
+            <div class="card-body">
+              <h5 class="card-title">SHED CONSTRUCTION & REPAIRS</h5>
+              <p class="card-text">Professional painting services to refresh and enhance the look of both interior and exterior spaces.</p>
+              <a href="tel:+61433195185" class="btn btn-primary">Call Us</a>
+              <a href="sms:+61433195185" class="btn btn-primary"> SMS-Booking</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Third card -->
+      <div class="carousel-item">
+        <div class="container d-flex justify-content-center">
+          <div class="card">
+            <img src="./images/painting-walls-pink.jpg" class="card-img-top" alt="Card image 3">
+            <div class="card-body">
+              <h5 class="card-title">INTERIOR & EXTERIOR PAINTING</h5>
+              <p class="card-text">Interior & exterior painting improves aesthetics, protects surfaces, and enhances durability, creating a fresh, appealing look for any space.</p>
+              <a href="tel:+61433195185" class="btn btn-primary">Call Us</a>
+              <a href="sms:+61433195185" class="btn btn-primary"> SMS-Booking</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Third card -->
+      <div class="carousel-item">
+        <div class="container d-flex justify-content-center">
+          <div class="card">
+            <img src="./images/roof.jpg" class="card-img-top" alt="Card image 3">
+            <div class="card-body">
+              <h5 class="card-title">ROOF REPAIRS</h5>
+              <p class="card-text">Expert roof repair services to address leaks, damage, and maintenance issues, ensuring the integrity of your roof.</p>
+              <a href="tel:+61433195185" class="btn btn-primary">Call Us</a>
+              <a href="sms:+61433195185" class="btn btn-primary"> SMS-Booking</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Third card -->
+      <div class="carousel-item">
+        <div class="container d-flex justify-content-center">
+          <div class="card">
+            <img src="./images/door-window.jpg" class="card-img-top" alt="Card image 3">
+            <div class="card-body">
+              <h5 class="card-title">DOOR & WINDOW INSTALLATION</h5>
+              <p class="card-text">Professional installation services for doors and windows to enhance security, efficiency, and aesthetics of your home.</p>
+              <a href="tel:+61433195185" class="btn btn-primary">Call Us</a>
+              <a href="sms:+61433195185" class="btn btn-primary"> SMS-Booking</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Third card -->
+      <div class="carousel-item">
+        <div class="container d-flex justify-content-center">
+          <div class="card">
+            <img src="./images/tiling.jpg" class="card-img-top" alt="Card image 3">
+            <div class="card-body">
+              <h5 class="card-title">TILING & FLOORING</h5>
+              <p class="card-text">Expert tiling and flooring services for a variety of surfaces, including installation and repairs.</p>
+              <a href="tel:+61433195185" class="btn btn-primary">Call Us</a>
+              <a href="sms:+61433195185" class="btn btn-primary"> SMS-Booking</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Third card -->
+      <div class="carousel-item">
+        <div class="container d-flex justify-content-center">
+          <div class="card">
+            <img src="./images/drywall.jpg" class="card-img-top" alt="Card image 3">
+            <div class="card-body">
+              <h5 class="card-title">DRYWALL REPAIRS</h5>
+              <p class="card-text">Reliable drywall repair services to fix holes, cracks, and damage for a smooth and seamless finish.</p>
+              <a href="tel:+61433195185" class="btn btn-primary">Call Us</a>
+              <a href="sms:+61433195185" class="btn btn-primary"> SMS-Booking</a>
+            </div>
+          </div>
+        </div>
+      </div>
+       <!-- Third card -->
+       <div class="carousel-item">
+        <div class="container d-flex justify-content-center">
+          <div class="card">
+            <img src="./images/assmbly.jpg" class="card-img-top" alt="Card image 3">
+            <div class="card-body">
+              <h5 class="card-title">FURNITURE ASSEMPLY</h5>
+              <p class="card-text">Professional furniture assembly services to ensure your new furniture is assembled correctly and securely.</p>
+              <a href="tel:+61433195185" class="btn btn-primary">Call Us</a>
+              <a href="sms:+61433195185" class="btn btn-primary"> SMS-Booking</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#cardCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#cardCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+  <!-- Our Work Section -->
+  <div class="container our-work">
+    <h1 class="my-4">Our Work</h1>
+    <div class="row">
+      <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="./images/1.jpg" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="./images/2.jpg" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="./images/3.jpg" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="./images/4.jpg" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="./images/5.jpg" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="./images/6.jpg" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="./images/7.jpg" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="./images/8.jpg" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="./images/9.jpg" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="./images/10.jpg" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="./images/11.jpg" class="d-block w-100" alt="...">
+          </div>
+          
+          <div class="carousel-item">
+            <img src="./images/13.jpg" class="d-block w-100" alt="...">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </div>
+  </div>
+  <!-- Location Section -->
+  <div class="container who-we-are">
+   
+    <div class="row">
+      <div class="col">
+        <h1>Location</h1>
+        <p><a href="https://maps.app.goo.gl/3ZyqxHCqDTGUbvv36">Toowoomba 4350</a></p>
+        <h3>Availability Hour</h3>
+        <p>Monday-Friday: 7:00am-5:00pm</p>
+      </div>
+      <div class="col">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d226354.27960568367!2d151.70969266593033!3d-27.569163099330577!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b96435a37012f5b%3A0x1c00eef4d3090e30!2sCharlton%20QLD%204350!5e0!3m2!1sen!2sau!4v1726700633880!5m2!1sen!2sau" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+</div>
+  <!-- Who We Are Section -->
+  <div class="container who-we-are">
+    <h1>Who We Are</h1>
+    <p>At Shairs Welding, we are a dedicated team of skilled professionals offering expert handyman and welding services in Toowoomba. With years of hands-on experience, we specialize in custom welding solutions, metal fabrication, and general home repairs. As a locally-owned business, we take pride in serving our community with reliable, high-quality craftsmanship tailored to meet your needs. Whether you're looking for a trustworthy local handyman or a precise welding expert, we’re here to deliver exceptional results with a focus on customer satisfaction. Let us be your partner in home improvement and repair!</p>
+  </div>
+
+
+  <!-- Footer Section -->
+  <footer class="bg-dark text-white py-4">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <h5>Contact Us</h5>
+          <p>Toowoomba 4350<br>Phone: <a href="tel:0433195185">0433195185</a><br>Email: <a href="mailto:Shiarwelding@gmail.com">Shiarwelding@gmail.com</a></p>
+        </div>
+        <div class="col-md-6 text-md-end">
+          <h5>Follow Us</h5>
+          <a href="https://www.facebook.com/share/qXR7ThNTG2pHTJsu/?mibextid=JRoKGi" class="text-white me-2">Facebook</a>
+          
+         
+        </div>
+      </div>
+      <div class="text-center mt-4">
+        <p>&copy; 2024 Shairs Welding. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+  <!-- Optional JavaScript; choose one of the two! -->
+  <!-- Option 1: Bootstrap Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  <!-- Option 2: Separate Popper and Bootstrap JS -->
+  <!--
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+  -->
+</body>
+</html>
