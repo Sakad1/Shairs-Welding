@@ -385,3 +385,9 @@ a{
     border-radius: 37% 29% 27% 27% / 28% 25% 41% 37%;
   }
 }
+
+
+hr{
+  width: 100%;
+  text-align: center;
+}
